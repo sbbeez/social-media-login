@@ -1,0 +1,48 @@
+
+<Goo
+  ref='goo'
+  />
+
+  import Goo from './Google'
+
+
+onPress= {this.refs.goo.show()}
+
+
+<Ins
+  ref='ins'
+  clientId='d7c44c22521948e38504ccbdfa6c9986'
+  redirectUrl='https://www.google.com'
+  scopes={['public_content+follower_list']}
+  onLoginSuccess={(token) => this.setState({ token })}
+/>
+
+{!this.state.token ? (
+  <TouchableOpacity style={{ borderRadius: 5, backgroundColor: 'orange', height: 30, width: 100, justifyContent: 'center', alignItems: 'center' }}
+  onPress={() => this.refs.ins.show()}>
+    <Text style={{ color: 'white' }}>Login</Text>
+  </TouchableOpacity>
+) : (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text style={{ margin: 10 }}>token: {this.state.token}</Text>
+      <TouchableOpacity style={{ borderRadius: 5, backgroundColor: 'green', height: 30, width: 100, justifyContent: 'center', alignItems: 'center' }} onPress={() => this.logout()}>
+        <Text style={{ color: 'white' }}>Logout</Text>
+      </TouchableOpacity>
+    </View>
+  )
+}
+
+
+
+
+
+
+#important
+
+
+<WebView
+source ={{uri:`https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=${clientId}&redirect_uri=${redirectUrl}&state=${state}&scope=${scope}`}}
+  startInLoadingState
+  scalesPageToFit
+  onNavigationStateChange = {this.onNavigationChange.bind(this)}
+/>
