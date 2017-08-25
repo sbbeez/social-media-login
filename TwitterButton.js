@@ -15,8 +15,8 @@ const { RNTwitterSignIn } = NativeModules;
 
 const Constants = {
     //Dev Parse keys
-    TWITTER_COMSUMER_KEY: '	MwgCjJKkzjkF8atEzBAD7xz4Q',
-    TWITTER_CONSUMER_SECRET: '3MpxMd33iMsIMy03c0adFzvcnPW0dz6rgVjFdSjvY4Sv2gbB09',
+    TWITTER_COMSUMER_KEY: '	{your_consumer_key}',
+    TWITTER_CONSUMER_SECRET: '{your_consumer_secret}',
 };
 
 export default class TwitterButton extends Component {
